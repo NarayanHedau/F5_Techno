@@ -90,6 +90,8 @@ app.get("/get/unique/Subject", async (req, res) => {
     });
   }
 });
+
+
 // Get count of student having Subject Math
 app.get("/get/user/having/subject/maths", async (req, res) => {
   try {
@@ -112,6 +114,7 @@ app.get("/get/user/having/subject/maths", async (req, res) => {
   }
 });
 
+// Get of Standard having subject Maths
 app.get("/get/standatd/having/subject/maths", async (req, res) => {
   try {
     const subjectName = "Mathematics";
@@ -133,19 +136,21 @@ app.get("/get/standatd/having/subject/maths", async (req, res) => {
   }
 });
 
-app.get("/getData/:id", async (req, res) => {
+
+// 
+app.get("/promiseResolved/getData/:id", async (req, res) => {
   try {
-    let find = function (schema, id) {
+    let a = function (schema, id) {
       return schema.findOne({ _id: id });
     };
-    let data = await find(Subject, req.params.id);
+    let b = await a(Subject, req.params.id);
     res.status(200).json({
       status: 200,
       message: "Count of students with subject Mathematics",
-      data: data,
+      data: b,
     });
   } catch (error) {
-    console.log("=====>>>>>", error);
+  
     res.status(400).json({
       status: 400,
       message: "Unable to fetch data",
@@ -153,6 +158,25 @@ app.get("/getData/:id", async (req, res) => {
   }
 });
 
+app.get("/promisePending/getData/:id", async (req, res) => {
+  try {
+    let a = function (schema, id) {
+      return schema.findOne({ _id: id });
+    };
+    let b =  a(Subject, req.params.id);
+    res.status(200).json({
+      status: 200,
+      message: "Count of students with subject Mathematics",
+      data: b,
+    });
+  } catch (error) {
+  
+    res.status(400).json({
+      status: 400,
+      message: "Unable to fetch data",
+    });
+  }
+});
 app.listen(3000, () => {
   console.log("Connected");
 });
