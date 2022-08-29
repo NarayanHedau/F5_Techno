@@ -13,9 +13,6 @@ const Standard = mongoose.model("Standard");
 const Subject = mongoose.model("Subject");
 const Student = mongoose.model("Student");
 
-const jwt = require("jsonwebtoken");
-const Auth = require("./helper/auth");
-const config = { jwt_secret: "secreteKey" };
 
 // Create Subject API
 app.post("/create/subject", async (req, res) => {
