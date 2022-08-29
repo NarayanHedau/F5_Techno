@@ -137,7 +137,7 @@ app.get("/get/standatd/having/subject/maths", async (req, res) => {
 });
 
 
-// 
+// Promises Resolve
 app.get("/promiseResolved/getData/:id", async (req, res) => {
   try {
     let a = function (schema, id) {
@@ -158,6 +158,7 @@ app.get("/promiseResolved/getData/:id", async (req, res) => {
   }
 });
 
+// Promises Pending
 app.get("/promisePending/getData/:id", async (req, res) => {
   try {
     let a = function (schema, id) {
